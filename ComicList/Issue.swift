@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 /// A comic issue
 struct Issue {
 
@@ -17,3 +17,8 @@ struct Issue {
     /// Cover image URL
     let coverURL: URL?
 }
+
+extension Issue: JSONDecodable{
+    
+}
+ */

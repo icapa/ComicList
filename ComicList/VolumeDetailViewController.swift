@@ -93,7 +93,7 @@ class VolumeDetailViewController: UIViewController {
             .addDisposableTo(disposeBag)
 
         // Bind issues
-
+        
         viewModel.issues
             .bindTo(issuesView.collectionView.rx.items) { collectionView, item, issue in
 
@@ -106,7 +106,10 @@ class VolumeDetailViewController: UIViewController {
             .addDisposableTo(disposeBag)
 
         viewModel.issues
-            .map { $0.isEmpty }
+            .map {
+                $0.isEmpty
+            }
+            .debug()
             .bindTo(issuesView.rx.hidden)
             .addDisposableTo(disposeBag)
     }

@@ -19,12 +19,15 @@ extension Client {
                 for suggestion in suggestions where !titles.contains(suggestion.title) {
                     titles.append(suggestion.title)
                 }
-
                 return titles
             }
     }
 
     public func suggestions(forQuery query: String) -> Observable<[Suggestion]> {
         return objects(forResource: API.suggestions(query: query))
+    }
+    
+    public func issues(forVolumen volumen: Int) -> Observable<[Issue]>{
+        return objects(forResource: API.issues(volumeIdentifier: volumen))
     }
 }
