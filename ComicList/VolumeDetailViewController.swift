@@ -96,7 +96,7 @@ class VolumeDetailViewController: UIViewController {
         
         viewModel.issues
             .bindTo(issuesView.collectionView.rx.items) { collectionView, item, issue in
-
+                print ("El item es: \(item)")
                 let cell: ItemCell = collectionView.dequeueReusableCell(for: item)
                 cell.titleLabel.text = issue.title
                 cell.coverView.url = issue.coverURL
@@ -109,7 +109,6 @@ class VolumeDetailViewController: UIViewController {
             .map {
                 $0.isEmpty
             }
-            .debug()
             .bindTo(issuesView.rx.hidden)
             .addDisposableTo(disposeBag)
     }

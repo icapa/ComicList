@@ -11,7 +11,8 @@ import HTTPFetcher
 import RxSwift
 
 private let baseURL = URL(string: "http://www.comicvine.com/api")!
-private let key = "75d580a0593b7320727309feb6309f62def786cd"
+private let key = "9f64c2645c51813603c4584960d11757846aabea"
+
 
 public enum ClientError: Error {
     case couldNotDecodeJSON
