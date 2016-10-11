@@ -82,7 +82,15 @@ class VolumeDetailViewController: UIViewController {
         headerView.didTapButton = viewModel.addOrRemove
 
         // Bind about
-
+        
+        
+        let _ = viewModel.about
+            .bindNext( { (cadena) in
+                self.aboutView.plainText = cadena
+            })
+        
+                
+        /*
         viewModel.about
             .bindTo(aboutView.about)
             .addDisposableTo(disposeBag)
@@ -91,7 +99,9 @@ class VolumeDetailViewController: UIViewController {
             .map { $0?.isEmpty ?? true }
             .bindTo(aboutView.rx.hidden)
             .addDisposableTo(disposeBag)
-
+        */
+        
+        
         // Bind issues
         
         viewModel.issues

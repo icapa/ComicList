@@ -20,15 +20,39 @@ final class VolumeAboutView: UIView {
             titleLabel.textColor = UIColor(named: .darkText)
         }
     }
-
+    /*
     @IBOutlet private weak var aboutLabel: UILabel! {
         didSet {
             aboutLabel.textColor = UIColor(named: .darkText)
         }
     }
+    */
+    @IBOutlet private weak var labelWebview: UIWebView!{
+        didSet{
+            labelWebview.backgroundColor = UIColor.gray
+        }
+    }
 
     /// Bindable observer for the about text
+    /*
     var about: AnyObserver<String?> {
         return aboutLabel.rx.text
     }
+    */
+    
+    var plainText : String?{
+        set{
+            guard let str = newValue else{
+                return
+            }
+            labelWebview.loadHTMLString(str, baseURL: nil)
+            
+        }
+        get{
+            return ""
+        }
+    }
+    
+    
+    
 }
