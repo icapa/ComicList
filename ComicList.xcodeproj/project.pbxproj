@@ -91,6 +91,7 @@
 		82EC5ECA1DA17A640096F033 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EC5EC91DA17A640096F033 /* UIColor+Additions.swift */; };
 		82EC5ECC1DA17E810096F033 /* VolumeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82EC5ECB1DA17E810096F033 /* VolumeHeaderView.swift */; };
 		82FCADB91DA23AE20091EB53 /* VolumeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82FCADB81DA23AE20091EB53 /* VolumeDetailViewModel.swift */; };
+		CF201B881DAE31050043FC7B /* VolumeRealmResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF201B871DAE31050043FC7B /* VolumeRealmResults.swift */; };
 		CFD304801DAAF6B7003F383E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD3047F1DAAF6B7003F383E /* Issue.swift */; };
 		CFE8668F1DADA622008831A6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFE8668D1DADA622008831A6 /* Realm.framework */; };
 		CFE866901DADA622008831A6 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CFE8668D1DADA622008831A6 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -386,6 +387,7 @@
 		82EC5EC91DA17A640096F033 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		82EC5ECB1DA17E810096F033 /* VolumeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeHeaderView.swift; sourceTree = "<group>"; };
 		82FCADB81DA23AE20091EB53 /* VolumeDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeDetailViewModel.swift; sourceTree = "<group>"; };
+		CF201B871DAE31050043FC7B /* VolumeRealmResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VolumeRealmResults.swift; sourceTree = "<group>"; };
 		CFD3047F1DAAF6B7003F383E /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		CFE8668D1DADA622008831A6 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		CFE8668E1DADA622008831A6 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				828622721DA9591300CFBD7A /* Model.xcdatamodeld */,
 				CFE866971DADAC05008831A6 /* VolumeRealmEntry.swift */,
 				CFE866991DADAF41008831A6 /* VolumeRealmContainer.swift */,
+				CF201B871DAE31050043FC7B /* VolumeRealmResults.swift */,
 			);
 			path = ComicContainer;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				828622761DA95ABB00CFBD7A /* VolumeEntry.swift in Sources */,
 				8286226F1DA952C900CFBD7A /* Volume.swift in Sources */,
 				828622741DA9591300CFBD7A /* Model.xcdatamodeld in Sources */,
+				CF201B881DAE31050043FC7B /* VolumeRealmResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

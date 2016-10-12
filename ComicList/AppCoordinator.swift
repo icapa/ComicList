@@ -14,14 +14,22 @@ final class AppCoordinator: Coordinator {
     private let window: UIWindow
     private let navigationController = UINavigationController()
     private let volumeContainer = VolumeContainer.instance
-
+    
+    private let volumeRealmContainer = VolumeRealmContainer()
+    
     init(window: UIWindow) {
         self.window = window
     }
 
     override func start() {
+        
         let _ = volumeContainer.load().subscribe()
 
+        // Esto es para realm
+        let _ = volumeRealmContainer.load().subscribe()
+        
+        
+        
         customizeAppearance()
         
         window.rootViewController = navigationController

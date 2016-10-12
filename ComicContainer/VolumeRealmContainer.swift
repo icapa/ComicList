@@ -10,17 +10,20 @@ import UIKit
 import RealmSwift
 import RxSwift
 
-final class VolumeRealmContainer {
+final public class VolumeRealmContainer {
     
     // Private access
     fileprivate var realm : Realm?
     
+    public init(){
+        print("Init Volume Realm Container")
+    }
 }
 
 
 extension VolumeRealmContainer: VolumeContainerType {
     /// Loads the corresponding store for the container
-    func load() -> Observable<Void>{
+    public func load() -> Observable<Void>{
         return Observable.create { observer in
             do{
                 self.realm = try Realm()
@@ -35,7 +38,7 @@ extension VolumeRealmContainer: VolumeContainerType {
     }
     
     /// Saves an array of volumes in the container
-    func save(volumes: [Volume]) -> Observable<Void>{
+    public func save(volumes: [Volume]) -> Observable<Void>{
         return Observable.create { observer in
             self.realm?.beginWrite()
             let _ = volumes.map {
@@ -47,23 +50,46 @@ extension VolumeRealmContainer: VolumeContainerType {
     }
     
     /// Deletes the volume with a given identifier
-    func delete(volumeWithIdentifier: Int) -> Observable<Void>{
+    public func delete(volumeWithIdentifier: Int) -> Observable<Void>{
         return Observable.create { observer in
+            let vol = self.realm?.objects(VolumeRealmEntry.self)
+                .filter("identifier == %@",volumeWithIdentifier)
+            do{
+                try self.realm?.write {
+                    self.realm?.delete((vol?.last)!)
+                }
+            }
+            catch{
+                observer.onError(error)
+            }
             observer.onCompleted()
             return Disposables.create()
         }
     }
     
     /// Determines if the container contains a volume with a given identifier
-    func contains(volumeWithIdentifier: Int) -> Bool{
-        return false
+    public func contains(volumeWithIdentifier: Int) -> Bool{
+        let vol = self.realm?.objects(VolumeRealmEntry.self)
+        .filter("identifier == %@", volumeWithIdentifier)
+        if vol == nil{
+            return false
+        }else{
+            if (vol?.count)!>0{
+                return true
+            }
+            else{
+                return false
+            }
+        }
     }
     
     /// Returns all the volumes in the container
-    func all() -> VolumeResultsType{
+    public func all() -> VolumeResultsType{
+        let allVols = realm?.objects(VolumeRealmEntry.self)
+        let resuls = VolumeRealmResults(allVols!)
+        return resuls
         
     }
-
 
 }
 

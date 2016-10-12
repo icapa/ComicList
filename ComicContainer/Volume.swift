@@ -42,4 +42,13 @@ extension Volume {
         self.coverURL = entry.coverURL
         self.publisherName = entry.publisher
     }
+    
+    // For realm
+    internal init (entry: VolumeRealmEntry){
+        self.identifier = entry.identifier
+        self.title = entry.title
+        self.coverURL = entry.coverURL
+        self.publisherName = entry.publisher
+
+    }
 }
