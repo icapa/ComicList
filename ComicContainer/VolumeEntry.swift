@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+
 internal class VolumeEntry: NSManagedObject {
 
     @NSManaged var identifier: Int

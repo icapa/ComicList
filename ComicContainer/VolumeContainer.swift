@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 import RxSwift
 
+
 /// A collection of volumes persisted in disk
 public protocol VolumeContainerType {
 
