@@ -64,4 +64,7 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 
+#Que no suba los modulos de realm
+RealmSwift*
+
 .DS_Store
