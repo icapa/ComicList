@@ -47,8 +47,14 @@ extension Volume {
     internal init (entry: VolumeRealmEntry){
         self.identifier = entry.identifier
         self.title = entry.title
-        self.coverURL = entry.coverURL
+//        self.coverURL = entry.coverURL
         self.publisherName = entry.publisher
-
+        if entry.imageURL != nil{
+            self.coverURL = URL(string: entry.imageURL!)
+        }
+        else{
+            self.coverURL = nil
+        }
+        
     }
 }

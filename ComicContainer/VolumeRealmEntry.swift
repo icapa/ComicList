@@ -17,7 +17,7 @@ class VolumeRealmEntry: Object {
     dynamic var imageURL : String? = nil
     dynamic var insertionDate : Date = Date()
 
-    
+    /*
     var coverURL: URL? {
 
         get {
@@ -29,12 +29,14 @@ class VolumeRealmEntry: Object {
         }
     
     }
+    */
+    
     convenience init (_ volume: Volume){
         self.init()
         self.identifier = volume.identifier
         self.title = volume.title
         self.publisher = volume.publisherName
-        self.coverURL = volume.coverURL
+        self.imageURL = volume.coverURL?.absoluteString
         self.insertionDate = Date()
     }
 }

@@ -46,6 +46,7 @@ class VolumeListViewController: UIViewController {
         // comic list is updated
         viewModel.didUpdate = collectionView.reloadData
     }
+    
 }
 
 // MARK: - UICollectionViewDataSource

@@ -59,9 +59,8 @@ final class SearchResultsViewModel: SearchResultsViewModelType {
     private let disposeBag = DisposeBag()
 
     init(query: String,
-         client: Client = Client(),
-         //container: VolumeContainerType = VolumeContainer.temporary()) { // REALM
-        container: VolumeContainerType = VolumeRealmContainer.init()){
+        client: Client = Client(),
+        container: VolumeContainerType = VolumeContainer.temporary()) { 
         
         self.query = query
         self.client = client

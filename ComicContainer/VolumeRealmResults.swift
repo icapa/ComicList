@@ -12,33 +12,50 @@ import RealmSwift
 internal final class VolumeRealmResults: NSObject, VolumeResultsType {
     // MARK: - VolumeResultsType
     
+    var token : NotificationToken?
+    
     var didUpdate: () -> Void = {}
     
     var numberOfVolumes: Int {
-        return (self.results?.count)!
+        guard let r = self.results else {
+            return 0
+        }
+        return r.count
         
     }
     
     func volume(at index: Int) -> Volume {
-        //let entry = resultsController.object(at: indexPath)
         let entry = self.results?[index]
         return Volume(entry: entry!)
     }
     
-    // MARK : Private
-    fileprivate let realm = try! Realm()
+        
     var results : Results<VolumeRealmEntry>?
     
     // MARK : Init
-    init(_ realmObjects: Results<VolumeRealmEntry>){
-        self.results = realmObjects
+    init(_ realmObjects: Results<VolumeRealmEntry>?){
         
+        super.init()
+        
+        guard let r = realmObjects else{
+            self.results = nil
+            return
+        }
+        self.results = r
+        
+        
+        let realm = try! Realm()
+        token = realm.addNotificationBlock{ (notification, realm)  in
+            print("Hubo un cambio.... Eoeoeoeoeoeoeoe")
+            self.didUpdate()
+        }
     }
-
+    deinit {
+        token?.stop()
+    }
 }
 
 extension VolumeRealmResults{
-    
 }
 
 

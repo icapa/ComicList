@@ -36,7 +36,8 @@ final class VolumeListViewModel: VolumeListViewModelType {
 
     private let results: VolumeResultsType
 
-    init(results: VolumeResultsType = VolumeContainer.instance.all()) {
+    
+    init(results: VolumeResultsType = VolumeRealmContainer.instance.all()) {
         self.results = results
 
         self.results.didUpdate = { [weak self] in
