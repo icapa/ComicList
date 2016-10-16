@@ -40,6 +40,7 @@ extension VolumeRealmContainer: VolumeContainerType {
             let _ = volumes.map {
                 realm.add(VolumeRealmEntry($0))}
             try! realm.commitWrite()
+            observer.onNext()
             observer.onCompleted()
             return Disposables.create()
         }
@@ -61,6 +62,7 @@ extension VolumeRealmContainer: VolumeContainerType {
             catch{
                 observer.onError(error)
             }
+            observer.onNext()
             observer.onCompleted()
             return Disposables.create()
         }

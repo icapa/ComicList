@@ -89,6 +89,8 @@ class VolumeDetailViewController: UIViewController {
                 self.aboutView.plainText = cadena
             })
         
+        
+            
                 
         /*
         viewModel.about

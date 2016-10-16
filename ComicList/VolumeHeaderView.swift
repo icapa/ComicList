@@ -35,7 +35,9 @@ final class VolumeHeaderView: UIView {
     @IBOutlet private weak var coverView: CoverView!
 
     @IBAction private func _didTapButton(sender: UIButton) {
+        
         didTapButton()
+        
     }
 
     /// The volume title
@@ -73,7 +75,7 @@ final class VolumeHeaderView: UIView {
 
     /// Bindable sink for the status of the volume
     var isSaved: AnyObserver<Bool> {
-
+        print("Cambio el boton!!!!!")
         return UIBindingObserver(UIElement: button) { button, isSaved in
             // Change the title and style of the button
             // based on the status of the volume
